@@ -16,35 +16,31 @@ struct ContentView: View {
             
             Spacer()
             
-            Image(systemName: imgname)
+            Image(imgname)
                 .resizable()
                 .scaledToFit()
-                .foregroundStyle(.orange)
+                .clipShape(RoundedRectangle(cornerRadius: 20))
+                .shadow(color: .black, radius: 10)
+//                .foregroundStyle(.orange)
             Text(message)
                 .font(.largeTitle)
-                .fontWeight(.ultraLight)
+                .fontWeight(.heavy)
                 .foregroundStyle(.black)
             
             Spacer()
             
             Button ("Press Me!"){
-                let message1 = "You are Awesome!"
-                let message2 = "You are Great!"
-                let imageString1 = "sun.max.fill"
-                let imageString2 = "hand.thumbsup"
+                let message1 = "Joshua is Cool!"
+                let message2 = "Joshua loves Futbol!"
+
                 
-                if message == message1 {
-                    message = message2
-                    imgname = imageString2
-                } else {
-                    message = message1
-                    imgname = imageString1
-                }
-                
+                message = (message == message1 ? message2 : message1)
+                imgname = (imgname == "img1" ? "img0" : "img1")
+
             }
             .buttonStyle(.borderedProminent)
             .font(.title2)
-            .tint(.orange)
+            .tint(.black)
         }
         .padding()
     }
